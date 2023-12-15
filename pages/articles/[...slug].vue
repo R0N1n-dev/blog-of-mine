@@ -16,9 +16,11 @@ const { data: blogPost } = await useAsyncData("blogPost", () =>
 <template>
   <div>
     <button @click="router.go(-1)">Back</button>
+    <button @click="router.push('/articles')">Articles</button>
     <PrevNext :prev="prev" :next="next" />
-    <ContentRenderer :value="data">
-      <ContentRendererMarkdown :value="data" />
+    <ContentRenderer :value="data.article">
+      <h1>{{ data.article.title }}</h1>
+      <ContentRendererMarkdown :value="data.article" />
     </ContentRenderer>
   </div>
 </template>
