@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div>
-      <nuxt-link to="/">Home</nuxt-link>
-      <nuxt-link to="/about">About</nuxt-link>
-      <nuxt-link to="/articles">Blog</nuxt-link>
-    </div>
+    <INav>
+      <INavItem to="/">Home</INavItem>
+      <INavItem to="/about">About</INavItem>
+      <INavItem to="/articles">Blog</INavItem>
+    </INav>
     <slot />
   </div>
 </template>

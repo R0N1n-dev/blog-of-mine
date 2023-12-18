@@ -5,12 +5,12 @@ defineProps(["prev", "next"]);
 </script>
 <template>
   <ul class="prev-next-cont">
-    <li class="link-item prev">
+    <li class="link-item prev" v-if="prev">
       <NuxtLink v-if="prev" :to="prev._path">
         <span> {{ prev.title }} </span>
       </NuxtLink>
     </li>
-    <li class="link-item next">
+    <li class="link-item next" v-if="next">
       <NuxtLink v-if="next" :to="next._path">
         <span> {{ next.title }} </span>
       </NuxtLink>

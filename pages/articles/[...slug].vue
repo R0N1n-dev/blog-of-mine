@@ -14,15 +14,22 @@ const { data: blogPost } = await useAsyncData("blogPost", () =>
 </script>-->
 
 <template>
-  <div>
-    <button @click="router.go(-1)">Back</button>
-    <button @click="router.push('/articles')">Articles</button>
-    <PrevNext :prev="prev" :next="next" />
-    <ContentRenderer :value="data.article">
-      <h1>{{ data.article.title }}</h1>
-      <ContentRendererMarkdown :value="data.article" />
-    </ContentRenderer>
-  </div>
+  <IContainer>
+    <IRow>
+      <IColumn xxl="8" xl="8" lg="9" md="8" sm="8" xs="12">
+        <IButton @click="router.go(-1)">Back</IButton>
+        <IButton @click="router.push('/articles')">Articles</IButton>
+        <PrevNext :prev="prev" :next="next" />
+        <ContentRenderer :value="data.article">
+          <h1>{{ data.article.title }}</h1>
+          <ContentRendererMarkdown :value="data.article" />
+        </ContentRenderer>
+      </IColumn>
+      <IColumn>
+        <Toc :links="data.article.body.toc.links" />
+      </IColumn>
+    </IRow>
+  </IContainer>
 </template>
 
 <script setup>

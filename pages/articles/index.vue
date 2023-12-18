@@ -1,12 +1,24 @@
 <template>
-  <div>
+  <IContainer>
     <h1>Blog</h1>
-    <ul>
-      <li v-for="{ _path: slug, title } in blogPosts" :key="slug">
-        <NuxtLink :to="slug">{{ title }}</NuxtLink>
-      </li>
-    </ul>
-  </div>
+    <IRow>
+      <IColumn
+        v-for="{ _path: slug, title, description, cover } in blogPosts"
+        :key="slug"
+      >
+        <ICard>
+          <template #image>
+            <img :src="cover" alt="Card Image" />
+          </template>
+          <h2>{{ title }}</h2>
+          <p>
+            {{ description }}
+          </p>
+          <NuxtLink :to="slug">Read</NuxtLink>
+        </ICard>
+      </IColumn>
+    </IRow>
+  </IContainer>
 </template>
 
 <script setup>
